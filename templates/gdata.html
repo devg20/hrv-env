@@ -1,0 +1,69 @@
+<html>
+<head>
+	<h1 style="text-align:center;">HRV Analysis Tool</h1>
+</head>
+<body>
+	<form name="myForm" onsubmit="return validateForm()" action="/webm" method="POST">
+		<label for="data">RR-Interval Data</label>
+		<input name="data" id="data" size="90"/><br/>
+		<label for="key">Key(1/0)</label>
+		<input name="key" id="key" value="1"/>
+		<p>
+		<h2 style="text-align:left;">Data Cleaning Parameters</h2>
+		<h3 style="text-align:left;">Set parameters for removing outliers</h3>
+		<label for="low_rri">Low rri </label>
+		<input name="low_rri", id="low_rri" value="650"/><br/>
+		<label for="high_rri">High rri</label>
+		<input name="high_rri", id="high_rri" value="900"/><br/>
+		<h3 style="text-align:left;">Select method for removing Ectopic Beats</h3>
+			<input type="radio" id="malik" name="emethod" value="malik">
+			<label for="male">malik</label><br/>
+			<input type="radio" id="kamath" name="emethod" value="kamath">
+			<label for="kamath">kamath</label><br/>
+			<input type="radio" id="karlsson" name="emethod" value="karlsson">
+			<label for="karlsson">karlsson</label><br/>
+			<input type="radio" id="acar" name="emethod" value="acar">
+			<label for="acar">acar</label>
+		<br/><br/>
+		<h2 style="text-align:left;">Frquency Domain Parameters</h2>
+		<h3 style="text-align:left;">Select method</h3>
+			<input type="radio" id="welch" name="fmethod" value="welch">
+			<label for="welch">welch</label><br/>
+			<input type="radio" id="lomb" name="fmethod" value="lomb">
+			<label for="lomb">lomb</label><br/>
+		<label for="samp_freq">Sampling Frequency</label>
+		<input name="samp_freq", id="samp_freq" value="4"/><br/>
+		<h3 style="text-align:left;">VLF band parameters</h3>
+			<label for="low_vlf">Low</label>
+			<input name="low_vlf", id="low_vlf" value="0.004"/><br/>
+			<label for="high_vlf">High</label>
+			<input name="high_vlf", id="high_vlf" value="0.03"/><br/>
+		<h3 style="text-align:left;">LF band parameters</h3>
+			<label for="low_lf">Low</label>
+			<input name="low_lf", id="low_lf" value="0.03"/><br/>
+			<label for="high_lf">High</label>
+			<input name="high_lf", id="high_lf" value="0.15"/><br/>
+		<h3 style="text-align:left;">HF band parameters</h3>
+			<label for="low_hf">Low</label>
+			<input name="low_hf", id="low_hf" value="0.15"/><br/>
+			<label for="high_hf">High</label>
+			<input name="high_hf", id="high_hf" value="0.3"/><br/>
+		</p>
+		<br></br>
+		<input type="submit">
+	</form>
+</body>
+<script>
+function validateForm() {
+  var data = document.forms["myForm"]["data"].value;
+  var key = document.forms["myForm"]["key"].value;
+  var emethod = document.forms["myForm"]["emethod"].value;
+  var fmethod = document.forms["myForm"]["fmethod"].value;
+  var samp_freq = document.forms["myForm"]["samp_freq"].value;
+  if (data == "" || key ==  "" || emethod == "" || fmethod == "" || samp_freq == "") {
+    alert("Please fill out all data fields!");
+    return false;
+  }
+}
+</script>
+</html>

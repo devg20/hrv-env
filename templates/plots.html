@@ -1,0 +1,19 @@
+<html>
+<head>
+<h1 style="text-align:center">PLOTS</p>;
+</head>
+<body>
+	<div>
+	  <p>Distribution Plot</p>
+	  <img src="data:image/png;base64, {{data.distrib_b64}}" alt="Red dot"/>
+	  <p>Poincare Plot</p>
+	  <img src="data:image/png;base64, {{data.poincare_b64}}" alt="Red dot"/>
+	  <p>PSD Plot using Welch method</p>
+	  <img src="data:image/png;base64, {{data.psd_b64_welch}}" alt="Red dot"/>
+	  <p>PSD Plot using Lomb method</p>
+	  <img src="data:image/png;base64, {{data.psd_b64_lomb}}" alt="Red dot"/>
+	  <p>Time Series Plot</p>
+	  <img src="data:image/png;base64, {{data.timeseries_b64}}" alt="Red dot"/>
+	</div>
+</body>
+</html>

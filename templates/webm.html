@@ -1,0 +1,78 @@
+<html>
+<head>
+	<h1 style="text-align:center;">HRV Analysis Tool</h1>
+</head>
+<body>
+	<div id="analysis" style="visibility: hidden;">
+	<h2 style="text-align:left";> Time Domain Analysis</h2>
+	<table>
+		{% for key, value in data.time_domain_features.items() %}
+		   <tr>
+				<th style="text-align:left"> {{ key }} </th>
+				<td style="text-align:left"> {{ value }} </td>
+		   </tr>
+		{% endfor %}
+	</table>
+	<h2 style="text-align:left";> Frequency Domain Analysis</h2>
+	<table>
+		{% for key, value in data.frequency_domain_features.items() %}
+		   <tr>
+				<th style="text-align:left"> {{ key }} </th>
+				<td style="text-align:left"> {{ value }} </td>
+		   </tr>
+		{% endfor %}
+	</table>
+	<h2 style="text-align:left";> Geometric Features</h2>
+	<table>
+		{% for key, value in data.geometric_analysis_features.items() %}
+		   <tr>
+				<th style="text-align:left"> {{ key }} </th>
+				<td style="text-align:left"> {{ value }} </td>
+		   </tr>
+		{% endfor %}
+	</table>
+	<h2 style="text-align:left";> Poincare Plot Features</h2>
+	<table>
+		{% for key, value in data.poincare_plot_features.items() %}
+		   <tr>
+				<th style="text-align:left"> {{ key }} </th>
+				<td style="text-align:left"> {{ value }} </td>
+		   </tr>
+		{% endfor %}
+	</table>
+	<h2 style="text-align:left";> CSI CVI Features</h2>
+	<table>
+		{% for key, value in data.csi_cvi_features.items() %}
+		   <tr>
+				<th style="text-align:left"> {{ key }} </th>
+				<td style="text-align:left"> {{ value }} </td>
+		   </tr>
+		{% endfor %}
+	</table>
+	<h2 style="text-align:left";> Sample Entropy</h2>
+	<p> {{data.sample_entropy}}</p>
+	</div>
+	<div id="data" style="visibility: hidden;">
+	<h2 style="text-align:left";> Raw Data</h2>
+	<p> {{data.raw_data}}</p>
+	<br></br>
+	<h2 style="text-align:left";> Cleaned Data</h2>
+	<p> {{data.mod_data}}</p>
+	<br></br>
+	<h2 style="text-align:left";> Deleted Data</h2>
+	<p> {{data.del_data}}</p>
+	</div>
+	 
+</body>
+<script>
+var key = '{{data.key}}';
+var data = '{{data}}';
+if (data){
+	document.getElementById('analysis').style.visibility="visible"; 
+}
+if (key == 1){
+	document.getElementById('data').style.visibility="visible"; 
+	console.log(key);
+}
+</script>
+</html>
